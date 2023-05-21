@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+     <head>
+       <title>投稿一覧</title>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     </head>
+     <body>
+       <table>
+             <tr>
+                 <th>ID</th>
+                 <th>タイトル</th>
+                 <th>内容</th>
+             </tr>
+             <tr th:each="post : ${posts}">
+                 <td th:text="${post.id}"></td><!--
+表示したいタグにth:textを追加 -->
+                 <td th:text="${post.title}"></td><!--
+表示したいタグにth:textを追加 -->
+                 <td th:text="${post.text}"></td><!--
+表示したいタグにth:textを追加 -->
+
+             <td>
+             <!-- 削除処理の呼び出しを追加 -->
+             <form th:action="@{'/posts/delete/' + ${post.id}}"
+th:method="delete">
+                 <input type="submit" value="削除">
+             </form>
+             </td>
+             </tr>
+         </table>
+
+         <!-- 登録画面へのリンク追加 -->
+         <a th:href="@{/newposts}">新規登録へ</a>
+     </body>
+</html>
+
