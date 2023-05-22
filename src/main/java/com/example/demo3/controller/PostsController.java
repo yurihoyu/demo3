@@ -55,6 +55,7 @@ BindingResult bindingResult) {
       if (bindingResult.hasErrors()) {
           // エラーがある場合はユーザー登録画面を返す
           return "newposts";
+
       }
 
       Posts posts = new Posts();
