@@ -1,5 +1,7 @@
 package com.example.demo3.data.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +15,12 @@ public class Posts {
      @Id // postsテーブルのプライマリーキーidに付けるアノテーション
      @GeneratedValue(strategy = GenerationType.IDENTITY) //idがMySQLのauto_incrementの場合、自動生成させるためにアノテーションを付ける
      // postsテーブルのid
-     private Long id;
+     private Integer id;
 
      private String title;
+     private String name;
 
      private String text;
+     private LocalDateTime date;
 
 }
